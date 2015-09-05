@@ -3,9 +3,9 @@ package br.com.marcelo.filedes.utils;
 import java.lang.reflect.Field;
 import java.util.List;
 
-import br.com.marcelo.filedes.arquivo.Col;
-import br.com.marcelo.filedes.arquivo.Value;
 import br.com.marcelo.filedes.exceptios.ErroException;
+import br.com.marcelo.filedes.file.Col;
+import br.com.marcelo.filedes.file.Value;
 import br.com.marcelo.filedes.pojos.Pojo;
 
 public class ReaderObject {

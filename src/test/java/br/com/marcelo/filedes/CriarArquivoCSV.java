@@ -11,8 +11,8 @@ import org.junit.Test;
 import br.com.marcelo.filedes.enums.Out;
 import br.com.marcelo.filedes.pojos.Address;
 import br.com.marcelo.filedes.pojos.AddressInvalid;
-import br.com.marcelo.filedes.processos.GeneratorFile;
-import br.com.marcelo.filedes.processos.GeneratorFileFactory;
+import br.com.marcelo.filedes.process.GeneratorFile;
+import br.com.marcelo.filedes.process.GeneratorFileFactory;
 
 public class CriarArquivoCSV {
 

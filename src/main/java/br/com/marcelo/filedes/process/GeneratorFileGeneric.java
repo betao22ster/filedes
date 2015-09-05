@@ -1,11 +1,11 @@
-package br.com.marcelo.filedes.processos;
+package br.com.marcelo.filedes.process;
 
 import java.io.OutputStream;
 import java.util.List;
 import java.util.logging.Logger;
 
-import br.com.marcelo.filedes.arquivo.FileOut;
 import br.com.marcelo.filedes.exceptios.ErroException;
+import br.com.marcelo.filedes.file.FileOut;
 import br.com.marcelo.filedes.pojos.Pojo;
 import br.com.marcelo.filedes.utils.ReaderObject;
 
@@ -62,7 +62,7 @@ abstract class GeneratorFileGeneric implements GeneratorFile<Pojo> {
 		
 		LOG.info("Gerando o cabeçalho...");
 		
-		if( list.size() <= 0 ){
+		if( list.isEmpty() ){
 			LOG.info("Cancelado porque a lista está vazia.");
 			return;
 		}

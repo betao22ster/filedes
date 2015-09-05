@@ -1,4 +1,4 @@
-package br.com.marcelo.filedes.processos;
+package br.com.marcelo.filedes.process;
 
 import br.com.marcelo.filedes.enums.Out;
 

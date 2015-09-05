@@ -1,9 +1,9 @@
-package br.com.marcelo.filedes.processos;
+package br.com.marcelo.filedes.process;
 
 import java.util.logging.Logger;
 
-import br.com.marcelo.filedes.arquivo.FileOut;
-import br.com.marcelo.filedes.arquivo.FileOutCSV;
+import br.com.marcelo.filedes.file.FileOut;
+import br.com.marcelo.filedes.file.FileOutCSV;
 
 /**
  * 

@@ -1,4 +1,4 @@
-package br.com.marcelo.filedes.arquivo;
+package br.com.marcelo.filedes.file;
 
 
 public class FileOutCSV extends FileOutGeneric {

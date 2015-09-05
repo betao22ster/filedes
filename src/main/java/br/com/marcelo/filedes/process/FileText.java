@@ -1,4 +1,4 @@
-package br.com.marcelo.filedes.processos;
+package br.com.marcelo.filedes.process;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
