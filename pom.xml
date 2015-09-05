@@ -11,7 +11,7 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
-	<java.pasta>E:\projetos\projetos java\software\jdk1.7.0_67</java.pasta>
+
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
@@ -33,7 +33,7 @@
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
-					<executable>${java.pasta}/bin/javac</executable>
+				
 				</configuration>
 			</plugin>
 		</plugins>
