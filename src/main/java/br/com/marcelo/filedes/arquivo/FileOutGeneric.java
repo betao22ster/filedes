@@ -5,9 +5,13 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
+
+import br.com.marcelo.filedes.exceptios.ErroException;
 
 public abstract class FileOutGeneric implements FileOut{
 
+	private static final Logger LOG = Logger.getLogger(FileOutGeneric.class.getName());
 	protected static final String TAB = ";";
 	protected static final String TAB_LINE = "\n";
 	
@@ -74,13 +78,14 @@ public abstract class FileOutGeneric implements FileOut{
 	}
 	
 	@Override
-	public OutputStream getContentStream() throws Exception  {
+	public OutputStream getContentStream() throws ErroException  {
 
 		try (ByteArrayOutputStream ret = new ByteArrayOutputStream()) {
 			ret.write( getContentString().getBytes() );
 			return ret;
 		} catch (IOException e) {
-           throw new Exception("Erro ao gerar a saída em Stream.");
+			LOG.warning(e.getMessage());
+           throw new ErroException("Erro ao gerar a saída em Stream.");
         }
 		
 	}

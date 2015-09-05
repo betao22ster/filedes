@@ -5,6 +5,7 @@ import java.util.List;
 
 import br.com.marcelo.filedes.arquivo.Col;
 import br.com.marcelo.filedes.arquivo.Value;
+import br.com.marcelo.filedes.exceptios.ErroException;
 import br.com.marcelo.filedes.pojos.Pojo;
 
 public class ReaderObject {
@@ -31,31 +32,36 @@ public class ReaderObject {
 		return ret;
 	}
 
-	public Value[] getData(Col[] headers, Pojo item) throws Exception {
+	public Value[] getData(Col[] headers, Pojo item) throws ErroException {
 
-		Value[] line = new Value[headers.length];
-		for (Col col : headers) {
-			Field field = item.getClass().getDeclaredField(col.getName());
-			field.setAccessible(true);
-			line[col.getCol()] = new Value(field.get(item));
+		try {
+			Value[] line = new Value[headers.length];
+			for (Col col : headers) {
+				Field field;
+				field = item.getClass().getDeclaredField(col.getName());
+				field.setAccessible(true);
+				line[col.getCol()] = new Value(field.get(item));
+			}
+			return line;
+		} catch (Exception e) {
+			throw new ErroException(e.getMessage());
 		}
 
-		return line;
 	}
 
-	public void valid(List<? extends Pojo> list) throws Exception {
-		
-		if( list == null || list.size() <= 0 ){
+	public void valid(List<? extends Pojo> list) throws ErroException {
+
+		if (list == null || list.isEmpty()) {
 			return;
 		}
-		
+
 		Pojo item = list.get(0);
 		for (Field col : item.getClass().getDeclaredFields()) {
-			
-			if( FieldsAllowed.getInstance().isNotPermitido(col) ){
-				throw new Exception("POJO não é permitido.");
+
+			if (FieldsAllowed.getInstance().isNotPermitido(col)) {
+				throw new ErroException("POJO não é permitido.");
 			}
-			
+
 		}
 	}
 

@@ -2,6 +2,8 @@ package br.com.marcelo.filedes.utils;
 
 import java.lang.reflect.Field;
 
+import br.com.marcelo.filedes.exceptios.ErroException;
+
 public class FieldsAllowed {
 
 	private static final FieldsAllowed INSTANCE = new FieldsAllowed();
@@ -14,7 +16,7 @@ public class FieldsAllowed {
 		return INSTANCE;
 	}
 	
-	public boolean isNotPermitido(Field field) throws Exception{
+	public boolean isNotPermitido(Field field) throws ErroException{
 		
 		if( field == null ){
 			return false;

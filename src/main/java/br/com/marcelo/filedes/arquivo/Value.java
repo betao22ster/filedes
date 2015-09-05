@@ -3,9 +3,9 @@ package br.com.marcelo.filedes.arquivo;
 public class Value {
 	private Object value;
 
-	public Value(Object valor) {
+	public Value(Object value) {
 		super();
-		this.value = valor;
+		this.value = value;
 	}
 
 	public Object getValue() {

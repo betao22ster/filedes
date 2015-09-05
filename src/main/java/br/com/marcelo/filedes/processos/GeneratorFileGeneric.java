@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import br.com.marcelo.filedes.arquivo.FileOut;
+import br.com.marcelo.filedes.exceptios.ErroException;
 import br.com.marcelo.filedes.pojos.Pojo;
 import br.com.marcelo.filedes.utils.ReaderObject;
 
@@ -25,7 +26,7 @@ abstract class GeneratorFileGeneric implements GeneratorFile<Pojo> {
 	protected abstract FileOut createFileOut();
 	
 	@Override
-	public OutputStream process(List<Pojo> list) throws Exception {
+	public OutputStream process(List<Pojo> list) throws ErroException {
 		
 		LOG.info("Iniciando processo...");
 		
@@ -33,7 +34,7 @@ abstract class GeneratorFileGeneric implements GeneratorFile<Pojo> {
 
 		initFileOut();
 		generatorHeader(list);
-		if( list != null && list.size() <= 0 ){
+		if( list != null && list.isEmpty() ){
 			return null;
 		}
 		
@@ -48,7 +49,7 @@ abstract class GeneratorFileGeneric implements GeneratorFile<Pojo> {
 		fileOut.createContent();
 	}
 
-	private void generatorLines(List<Pojo> list) throws Exception {
+	private void generatorLines(List<Pojo> list) throws ErroException {
 		LOG.info("Gerando as linhas...");
 		
 		for( Pojo item : list ){
@@ -76,13 +77,13 @@ abstract class GeneratorFileGeneric implements GeneratorFile<Pojo> {
 		this.fileOut = createFileOut();
 	}
 
-	private void valid(List<Pojo> list) throws Exception {
+	private void valid(List<Pojo> list) throws ErroException {
 		
 		LOG.info("Validando lista...");
 		
 		if( list == null ){
 			LOG.warning("Lista inválida!");
-			throw new Exception("Lista inválida!");
+			throw new ErroException("Lista inválida!");
 		}
 		
 		ReaderObject.getInstance().valid(list);

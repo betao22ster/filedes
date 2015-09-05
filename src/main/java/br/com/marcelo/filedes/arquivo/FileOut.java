@@ -2,9 +2,11 @@ package br.com.marcelo.filedes.arquivo;
 
 import java.io.OutputStream;
 
+import br.com.marcelo.filedes.exceptios.ErroException;
+
 public interface FileOut {
 	String getContentString();
-	OutputStream getContentStream() throws Exception;
+	OutputStream getContentStream() throws ErroException;
 	void addHeader(Col[] header);
 	void addLine(Value[] line);
 	Col[] getHeader();
